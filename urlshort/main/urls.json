@@ -1,0 +1,10 @@
+[
+  {
+    "path": "/goog",
+    "url": "https://www.google.com"
+  },
+  {
+    "path": "/hn",
+    "url": "https://news.ycombinator.com"
+  }
+]
