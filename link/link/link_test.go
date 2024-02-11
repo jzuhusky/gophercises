@@ -28,7 +28,7 @@ var testCases = []struct {
 		expectedLinks: []Link{
 			{
 				Href: "/other-page",
-				Text: "A link to another page",
+				Text: "A link to another pag",
 			},
 		},
 	},
@@ -52,6 +52,11 @@ func TestParseHtml(t *testing.T) {
 			// Assert Results of Parse match expected
 			if len(testCase.expectedLinks) != len(links) {
 				t.Errorf("Incorrect number of links - expected %d got %d", len(testCase.expectedLinks), len(links))
+			}
+			for i, link := range links {
+				if link.Href != testCase.expectedLinks[i].Href || link.Text != testCase.expectedLinks[i].Text {
+					t.Errorf("Found mismatching links - expected %s got %s", testCase.expectedLinks[i], link)
+				}
 			}
 		})
 	}
