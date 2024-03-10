@@ -1,3 +1,3 @@
-module github.com/jzuhusky/gophercises/deck
+module deck
 
-go 1.22.0
+go 1.22
