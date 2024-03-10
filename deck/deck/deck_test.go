@@ -70,5 +70,32 @@ func TestAddJoker(t *testing.T) {
 	if len(deck) != 53 {
 		t.Error("Wrong number of cards in a new deck with 1 Joker")
 	}
+}
+
+func TestMultiDeck(t *testing.T) {
+
+	numDecks := 0
+	deck, err := NewMultiDeck(numDecks)
+	if err == nil {
+		t.Error("Was expecting an error to be returned")
+	}
+
+	numDecks = 1
+	deck, err = NewMultiDeck(numDecks)
+	if err != nil {
+		t.Error("Was not expecting an error")
+	}
+	if len(deck) != numDecks*52 {
+		t.Error("Was expecting 52 cards, received:", len(deck))
+	}
+
+	numDecks = 3
+	deck, err = NewMultiDeck(numDecks)
+	if err != nil {
+		t.Error("Was not expecting an error")
+	}
+	if len(deck) != numDecks*52 {
+		t.Error("Was expecting 156 cards, received:", len(deck))
+	}
 
 }

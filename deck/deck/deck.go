@@ -1,7 +1,9 @@
 //go:generate stringer -type=SuitType,ValueType -output=type_strings.go
+
 package deck
 
 import (
+	"errors"
 	"fmt"
 	"math/rand"
 	"sort"
@@ -65,6 +67,18 @@ func NewDeck() []Card {
 		}
 	}
 	return cards
+}
+
+func NewMultiDeck(numDecks int) ([]Card, error) {
+	if numDecks == 0 {
+		return nil, errors.New("numDecks parameter must be > 0")
+	}
+	var deck []Card
+
+	for range numDecks {
+		deck = append(deck, NewDeck()...)
+	}
+	return deck, nil
 }
 
 func SortDeckSimple(deck []Card) {
