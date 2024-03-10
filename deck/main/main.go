@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"deck/deck"
+	"github.com/jzuhusky/gophercises/deck"
 )
 
 func main() {
