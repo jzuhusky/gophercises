@@ -2,7 +2,7 @@
 package deck
 
 import (
-    "fmt"
+	"fmt"
 	"math/rand"
 	"sort"
 	"time"
@@ -47,10 +47,10 @@ type Card struct {
 }
 
 func (c Card) String() string {
-    if c.Suit == Joker {
-        return c.Suit.String()
-    }
-    return fmt.Sprintf("%s of %s", c.Value.String(), c.Suit.String())
+	if c.Suit == Joker {
+		return c.Suit.String()
+	}
+	return fmt.Sprintf("%s of %s", c.Value.String(), c.Suit.String())
 }
 
 func NewDeck() []Card {
@@ -81,7 +81,7 @@ func SortDeckSimple(deck []Card) {
 }
 
 func AddJoker(deck []Card) []Card {
-    return append(deck, Card{Suit: Joker, Value: 0})
+	return append(deck, Card{Suit: Joker, Value: 0})
 }
 
 func ShuffleDeck(deck []Card) []Card {
